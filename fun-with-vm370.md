@@ -351,6 +351,55 @@ Again we see some oddness at the start of the output.
 
 ### Other interesting languages available
 
+#### PL/I
+
+PL/I is another language popular in mainframes, and is used to this day. It's much closer to more to what users of other recent languages would find familiar. It even includes a C-like preprocessor that allows including external files, conditional compilation and code-generating loops.
+
+To invoke the compiler, use:
+
+```text
+PLI FILENAME1 [FILENAME2 ... FILENAMEn]
+```
+This will compile all the files mentioned. The compiler has lots of options, so it's a good idea to read the built-in for the compiler. For that, as usual, type:
+
+```text
+HELP PLI
+```
+
+#### REXX
+
+Rexx is the "glue language" of IBM mainframes. It's simple, easy to use and interpreted. To write a REXX program you use the text editor. Using the file type `EXEC` will make it callable from the command line, but, in order for it to be recognized as a REXX program, the first line needs to be a comment delimited by `/*` and `*/`. The language itself reminds me of later versions of BASIC after line numbers were no longer a thing:
+
+```rexx
+/* REXX program to display the first 20 prime numbers */
+
+count = 0
+num = 2
+
+DO WHILE count < 20
+  IF is_prime(num) THEN DO
+    SAY num
+    count = count + 1
+  END
+  num = num + 1
+END
+
+EXIT
+
+is_prime: PROCEDURE
+  ARG n
+
+  IF n < 2 THEN
+    RETURN 0
+
+  DO divisor = 2 TO TRUNC(SQRT(n))
+    IF n // divisor = 0 THEN
+      RETURN 0
+  END
+
+  RETURN 1
+```
+
 #### C
 
 #### Pascal
