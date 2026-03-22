@@ -15,13 +15,13 @@ EXIT
 
 is_prime: PROCEDURE
   ARG n
-  
+
   IF n < 2 THEN
     RETURN 0
-  
+
   DO divisor = 2 TO TRUNC(SQRT(n))
     IF n // divisor = 0 THEN
       RETURN 0
   END
-  
+
   RETURN 1
