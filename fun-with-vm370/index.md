@@ -707,6 +707,8 @@ We really don't want that sitting in our `PROFILE EXEC` file, so we'll remove th
 
 Now the file is the same as when we started. Pay attention to the purple line at the bottom, and press F3 to quit `EE`.
 
+Tricked you! F3 will not work because we changed the file (EE doesn't realize the contents are the same as they are on disk). We'll use the `QQuit` command to quit. Think of it as ":q!" on Vim.
+
 ## Talking to other mainframes
 
 ### Mounting a disk on another running Hercules instance
