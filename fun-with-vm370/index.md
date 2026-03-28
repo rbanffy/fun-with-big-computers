@@ -683,7 +683,27 @@ My plan of having a user for me, one for my wife, and users for my kids will hav
 
 So far we have used `EDIT`. It's an editor that comes with IBM's VM/370 R6 and is the one you might see in period videos, but we have another one that's much nicer: `EE`.
 
-[TBA]
+![calling the ee editor](ee-profile-exec-a.png)
+
+### EE
+
+This brings up the editor, in our case, with the `PROFILE EXEC` file loaded.
+
+![the ee editor](ee-edit-profile-exec-a.png)
+
+`EE` is a much modern editor, and behaves like current tools, such as `ISPF`. One nice thing it has is the command are on the left (that region filled with equals signs). Move the cursor up and enter "i3" on one.
+
+![i3](ee-i3.png)
+
+When you hit enter, you'll see EE inserted 3 lines (because that's what `i` and `3` mean in this context).
+
+To enter new text (or change what's on the screen), just move the cursor there and start typing.
+
+![adding text](ee-add-text.png)
+
+We really don't want that sitting in our `PROFILE EXEC` file, so we'll remove those 3 lines.
+
+![d3](ee-d3.png)
 
 ## Talking to other mainframes
 
