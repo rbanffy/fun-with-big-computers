@@ -685,7 +685,7 @@ So far we have used `EDIT`. It's an editor that comes with IBM's VM/370 R6 and i
 
 ![calling the ee editor](ee-profile-exec-a.png)
 
-### EE
+### Using EE
 
 This brings up the editor, in our case, with the `PROFILE EXEC` file loaded.
 
@@ -704,6 +704,8 @@ To enter new text (or change what's on the screen), just move the cursor there a
 We really don't want that sitting in our `PROFILE EXEC` file, so we'll remove those 3 lines.
 
 ![d3](ee-d3.png)
+
+Now the file is the same as when we started. Pay attention to the purple line at the bottom, and press F3 to quit `EE`.
 
 ## Talking to other mainframes
 
