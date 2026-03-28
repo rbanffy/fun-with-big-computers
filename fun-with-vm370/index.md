@@ -443,7 +443,9 @@ DIR * MODULE S
 
 ![dir * module s](dir-star-module-s.png)
 
-[Other disks TBA]
+CMS offers a flat file system, so we can't have subdirectories. This is a big difference for people who are used to Unix or Windows systems and to organize files using them.
+
+A plain VM/370 would map CMS system files to disk S. The Community Edition we are running has the OS on drive S, and OS extras on disk Y. Disk U contains utilities.
 
 ## Uploading files to your machine (and playing games)
 
