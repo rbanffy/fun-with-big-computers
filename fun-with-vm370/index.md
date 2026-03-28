@@ -24,7 +24,7 @@ The container image we are using is based on the excellent work of the VM/370 Co
 
 ## Other options for getting a mainframe
 
-If you work in an organization that's cool enough to have an actual IBM mainframe, you can check if your operations team will allow you to have a small VM running nested VM/370 Community Edition. IBM mainframes have legendary backwards compatibility and there should be no (technical) issue bringing up an environment for you. There might be a lot of process hurdles, however, so tread carefully and have a good excuse at hand. "Doing fun stuff" is not it.
+If you work in an organization that's cool enough to have an actual IBM mainframe, you can check if your operations team will allow you to have a small VM running nested VM/370 Community Edition. IBM mainframes have legendary backwards compatibility and there should be no (technical) issue bringing up an environment for you. There might be a lot of process hurdles, however, so tread carefully and have a good excuse at hand. "Doing fun stuff" is not it. Trust me, I've tried this approach and it didn't end well.
 
 Another possible source of used mainframes is eBay or your local IT asset disposal company, but, seriously, you probably don't want the hassle of a dedicated power line for the machine, or the basement space to have one. And, if you get a real machine, you might also get a valid license to run something more modern, like z/VM, z/OS, and a fairly modern Linux. They are also quite expensive and require expertise to set them up, and, many times, to fix them (people who decommission these machines often don't bother disconnecting cables when just cutting is faster).
 
