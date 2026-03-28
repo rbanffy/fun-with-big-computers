@@ -74,6 +74,8 @@ TYPE PROFILE EXEC
 
 Unlike Unix, commands and file names are case insensitive, so it's fine to type them either way. Be careful, however, so you don't overwrite your files accidentally.
 
+Unlike most terminals, a 3270 doesn't scroll. If you fill the screen, you'll need to press the PA2 key (don't look for one on your keyboard - there isn't one). PA2 clears the terminal and receives the next page of text from the mainframe. On x3270, PA2 is Alt-2. On c3270, it's Control-C.
+
 ## Customising your PROFILE EXEC
 
 Our current `PROFILE EXEC` prints a welcome message that's informative, but that we can always read later. Let's remove that message from our profile. For that, we'll use a little bit of the `EDIT` editor.
