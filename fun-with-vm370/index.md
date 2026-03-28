@@ -642,7 +642,7 @@ Ready; T=0.13/0.82 13:19:36
 
 The first five disks are the ones defined in `USER DIRECT` in the MDISK lines. The last 3 are the ones LINK'ed from MAIN.
 
-To exit EDIT saving your changes, use the `FILE` command. To leave without saving changes, use `QUIT`. You'll need to clear the terminal to continue (the "MORE..." message in the bottom right).
+To exit EDIT saving your changes, use the `FILE` command. To leave without saving changes, use `QUIT`. You'll need to clear the terminal to continue (the "MORE..." message in the bottom right). On x3270 PA2, which clears the terminal, is Alt-2.
 
 Another interesting file you might look into. It is a comprehensive list of all disk partitioins, the users those partitions are used by, the CUU they are attached to, and the start and end of the partition, in cylinders. All entries look like this one:
 
