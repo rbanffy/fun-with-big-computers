@@ -60,7 +60,7 @@ You can also logon using `LOGON CMSUSER CMSUSER`, typing the password after the 
 
 ![logged on](logged-on.png)
 
-At this point, you are logged on. When you press ENTER again, a program, called "PROFILE EXEC" will run:
+At this point, you are logged on. There is a lot going on under the hood - CP, or "control program" asked VM/370 to create a virtual machine for you, and this virtual machine was started with the CMS operating system. The commands we'll see are CMS commands (unless noted). When you press ENTER again, a program, called "PROFILE EXEC" will run:
 
 ![profile-exec](profile-exec.png)
 
