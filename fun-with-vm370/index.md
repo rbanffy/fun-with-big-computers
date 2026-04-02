@@ -683,11 +683,17 @@ My plan of having a user for me, one for my wife, and users for my kids will hav
 
 So far we have used `EDIT`. It's an editor that comes with IBM's VM/370 R6 and is the one you might see in period videos, but we have another one that's much nicer: `EE`.
 
+On your termminal, write:
+
+```text
+EE PROFILE EXEC
+```
+
 ![calling the ee editor](ee-profile-exec-a.png)
 
 ### Using EE
 
-This brings up the editor, in our case, with the `PROFILE EXEC` file loaded.
+Typing `EE PROFILE EXEC` brings up the editor, in our case, with the `PROFILE EXEC` file loaded.
 
 ![the ee editor](ee-edit-profile-exec-a.png)
 
