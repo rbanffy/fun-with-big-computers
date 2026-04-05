@@ -9,6 +9,7 @@
        01  WS-QUOTIENT          PIC 999.
        01  WS-REMAINDER         PIC 999.
        01  WS-LIMIT             PIC 999 VALUE 50.
+       01  WS-NUM-DISPLAY       PIC Z(2)9.
 
        PROCEDURE DIVISION.
        MAIN-PARA.
@@ -32,7 +33,8 @@
                END-PERFORM
 
                IF WS-IS-PRIME = 1
-                   DISPLAY WS-NUM
+                   MOVE WS-NUM TO WS-NUM-DISPLAY
+                   DISPLAY FUNCTION TRIM(WS-NUM-DISPLAY)
                END-IF
 
                ADD 1 TO WS-NUM
