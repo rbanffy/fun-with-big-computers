@@ -443,7 +443,9 @@ DIR * MODULE S
 
 ![dir * module s](dir-star-module-s.png)
 
-CMS offers a flat file system, so we can't have subdirectories. This is a big difference for people who are used to Unix or Windows systems and to organize files using them.
+CMS offers a flat file system, so we can't have subdirectories. This is a big difference for people who are used to Unix or Windows systems and to organize files using them. Another difference, that'll feel more familiar to Windows users (and CP/M users before them) is that the system exposes multiple volumes instead of the single-root hierarchy of Unix systens.
+
+Finally, a more subtle difference is that there is no such thing as the "current" disk. If you don't specify a disk letter, the file is interpreted as A, which is your "home". You don't ever "change" to another disk, and you always mention them explicitly.
 
 A plain VM/370 would map CMS system files to disk S. The Community Edition we are running has the OS on drive S, and OS extras on disk Y. Disk U contains utilities.
 
