@@ -1,0 +1,299 @@
+1  CB545 V2 LVL78 01MAY72                 IBM OS AMERICAN NATIONAL STANDARD COBOL                       DATE APR  5,1926
+ 
+0   1
+-00001          IDENTIFICATION DIVISION.
+ 00002          PROGRAM-ID. PRIMES.
+ 00003
+ 00004          ENVIRONMENT DIVISION.
+ 00005
+ 00006          DATA DIVISION.
+ 00007          WORKING-STORAGE SECTION.
+ 00008          01  WS-NUM               PIC 999 VALUE 2.
+ 00009          01  WS-DIVISOR           PIC 999.
+ 00010          01  WS-IS-PRIME          PIC 9 VALUE 1.
+ 00011          01  WS-QUOTIENT          PIC 999.
+ 00012          01  WS-REMAINDER         PIC 999.
+ 00013          01  WS-LIMIT             PIC 999 VALUE 50.
+ 00014
+ 00015          PROCEDURE DIVISION.
+ 00016          MAIN-PARA.
+ 00017              GO TO MAIN-LOOP.
+ 00018
+ 00019          MAIN-LOOP.
+ 00020              IF WS-NUM > WS-LIMIT
+ 00021                  GO TO END-PROG.
+ 00022              MOVE 1 TO WS-IS-PRIME.
+ 00023              MOVE 2 TO WS-DIVISOR.
+ 00024              GO TO DIV-CHECK.
+ 00025
+ 00026          DIV-CHECK.
+ 00027              IF WS-DIVISOR * WS-DIVISOR > WS-NUM
+ 00028                  GO TO PRIME-CHECK.
+ 00029
+ 00030          DIV-LOOP.
+ 00031              DIVIDE WS-NUM BY WS-DIVISOR
+ 00032                  GIVING WS-QUOTIENT
+ 00033                  REMAINDER WS-REMAINDER.
+ 00034              IF WS-REMAINDER = 0
+ 00035                  MOVE 0 TO WS-IS-PRIME.
+ 00036              ADD 1 TO WS-DIVISOR.
+ 00037              GO TO DIV-CHECK.
+ 00038
+ 00039          PRIME-CHECK.
+ 00040              IF WS-IS-PRIME = 1
+ 00041                  DISPLAY WS-NUM.
+ 00042              ADD 1 TO WS-NUM.
+ 00043              GO TO MAIN-LOOP.
+ 00044
+ 00045          END-PROG.
+ 00046              STOP RUN.
+1   2
+-       INTRNL NAME   LVL SOURCE NAME                     BASE   DISPL   INTRNL NAME   DEFINITION   USAGE      R  O  Q  M
+        DNM=1-128     01  WS-NUM                          BL=1     000   DNM=1-128     DS 3C        DISP-NM
+        DNM=1-144     01  WS-DIVISOR                      BL=1     008   DNM=1-144     DS 3C        DISP-NM
+        DNM=1-164     01  WS-IS-PRIME                     BL=1     010   DNM=1-164     DS 1C        DISP-NM
+        DNM=1-185     01  WS-QUOTIENT                     BL=1     018   DNM=1-185     DS 3C        DISP-NM
+        DNM=1-206     01  WS-REMAINDER                    BL=1     020   DNM=1-206     DS 3C        DISP-NM
+        DNM=1-228     01  WS-LIMIT                        BL=1     028   DNM=1-228     DS 3C        DISP-NM
+1   3
+-
+ 
+                          MEMORY MAP
+ 
+                     TGT                     000B0
+ 
+                SAVE AREA                    000B0
+                SWITCH                       000F8
+                TALLY                        000FC
+                SORT SAVE                    00100
+                ENTRY-SAVE                   00104
+                SORT CORE SIZE               00108
+                RET CODE                     0010C
+                SORT RET                     0010E
+                WORKING CELLS                00110
+                SORT FILE SIZE               00240
+                SORT MODE SIZE               00244
+                PGT-VN TBL                   00248
+                TGT-VN TBL                   0024C
+                VCONPTR                      00250
+                LENGTH OF VN TBL             00254
+                LABEL RET                    00256
+                UNUSED                       00257
+                INIT1 ADCON                  00260
+                UNUSED                       00264
+                OVERFLOW CELLS               0026C
+                BL CELLS                     0026C
+                DECBADR CELLS                00270
+                TEMP STORAGE                 00270
+                TEMP STORAGE-2               00290
+                TEMP STORAGE-3               00290
+                TEMP STORAGE-4               00290
+                BLL CELLS                    00290
+                VLC CELLS                    00298
+                SBL CELLS                    00298
+                INDEX CELLS                  00298
+                SUBADR CELLS                 00298
+                ONCTL CELLS                  00298
+                PFMCTL CELLS                 00298
+                PFMSAV CELLS                 00298
+                VN CELLS                     00298
+                SAVE AREA =2                 00298
+                SAVE AREA =3                 00298
+                XSASW CELLS                  00298
+                XSA CELLS                    00298
+                PARAM CELLS                  00298
+                RPTSAV AREA                  00298
+                CHECKPT CTR                  00298
+                VCON TBL                     00298
+1   4
+-
+  LITERAL POOL (HEX)
+ 
+  002D0 (LIT+0)     F1F0F0F2  0C1C
+ 
+ 
+                     PGT                     002A0
+ 
+                OVERFLOW CELLS               002A0
+                VIRTUAL CELLS                002A0
+                PROCEDURE NAME CELLS         002AC
+                GENERATED NAME CELLS         002C0
+                DCB ADDRESS CELLS            002CC
+                VNI CELLS                    002CC
+                LITERALS                     002D0
+                DISPLAY LITERALS             002D6
+ 
+ 
+   REGISTER ASSIGNMENT
+ 
+    REG 6   BL =1
+ 
+  16     *MAIN-PARA
+  17      GO         0002D6                     START    EQU   *
+                     0002D6  58 10 C 00C                 L     1,00C(0,12)           PN=01
+                     0002DA  07 F1                       BCR   15,1
+  19     *MAIN-LOOP
+                     0002DC                     PN=01    EQU   *
+  20      IF         0002DC  F2 72 D 1C0 6 000           PACK  1C0(8,13),000(3,6)    TS=01           DNM=1-128
+                     0002E2  F2 72 D 1C8 6 028           PACK  1C8(8,13),028(3,6)    TS=09           DNM=1-228
+                     0002E8  F9 11 D 1C6 D 1CE           CP    1C6(2,13),1CE(2,13)   TS=07           TS=015
+                     0002EE  58 F0 C 020                 L     15,020(0,12)          GN=01
+                     0002F2  07 DF                       BCR   13,15
+  21      GO         0002F4  58 10 C 01C                 L     1,01C(0,12)           PN=05
+                     0002F8  07 F1                       BCR   15,1
+  22      MOVE       0002FA                     GN=01    EQU   *
+                     0002FA  D2 00 6 010 C 030           MVC   010(1,6),030(12)      DNM=1-164       LIT+0
+  23      MOVE       000300  D2 02 6 008 C 031           MVC   008(3,6),031(12)      DNM=1-144       LIT+1
+  24      GO         000306  58 10 C 010                 L     1,010(0,12)           PN=02
+                     00030A  07 F1                       BCR   15,1
+  26     *DIV-CHECK
+                     00030C                     PN=02    EQU   *
+  27      IF         00030C  F2 72 D 1C8 6 008           PACK  1C8(8,13),008(3,6)    TS=09           DNM=1-144
+                     000312  F2 72 D 1C0 6 008           PACK  1C0(8,13),008(3,6)    TS=01           DNM=1-144
+                     000318  FC 31 D 1CC D 1C6           MP    1CC(4,13),1C6(2,13)   TS=013          TS=07
+                     00031E  F2 72 D 1C0 6 000           PACK  1C0(8,13),000(3,6)    TS=01           DNM=1-128
+                     000324  F9 31 D 1CC D 1C6           CP    1CC(4,13),1C6(2,13)   TS=013          TS=07
+                     00032A  58 F0 C 014                 L     15,014(0,12)          PN=03
+                     00032E  07 DF                       BCR   13,15
+  28      GO         000330  58 10 C 018                 L     1,018(0,12)           PN=04
+                     000334  07 F1                       BCR   15,1
+  30     *DIV-LOOP
+                     000336                     PN=03    EQU   *
+  31      DIVIDE     000336  F2 72 D 1C8 6 008           PACK  1C8(8,13),008(3,6)    TS=09           DNM=1-144
+                     00033C  F2 72 D 1C0 6 000           PACK  1C0(8,13),000(3,6)    TS=01           DNM=1-128
+                     000342  F8 77 D 1D0 D 1C8           ZAP   1D0(8,13),1C8(8,13)   TS=017          TS=09
+                     000348  F8 77 D 1D8 D 1C0           ZAP   1D8(8,13),1C0(8,13)   TS=025          TS=01
+1   5
+-                    00034E  FD 31 D 1C4 D 1CE           DP    1C4(4,13),1CE(2,13)   TS=05           TS=015
+                     000354  F8 71 D 1C0 D 1C4           ZAP   1C0(8,13),1C4(2,13)   TS=01           TS=05
+                     00035A  F8 77 D 1C8 D 1C0           ZAP   1C8(8,13),1C0(8,13)   TS=09           TS=01
+                     000360  F3 21 6 018 D 1C6           UNPK  018(3,6),1C6(2,13)    DNM=1-185       TS=07
+                     000366  96 F0 6 01A                 OI    01A(6),X'F0'          DNM=1-185+2
+                     00036A  FC 31 D 1D4 D 1CE           MP    1D4(4,13),1CE(2,13)   TS=021          TS=015
+                     000370  FB 33 D 1DC D 1D4           SP    1DC(4,13),1D4(4,13)   TS=029          TS=021
+                     000376  F3 23 6 020 D 1DC           UNPK  020(3,6),1DC(4,13)    DNM=1-206       TS=029
+                     00037C  96 F0 6 022                 OI    022(6),X'F0'          DNM=1-206+2
+  34      IF         000380  F2 72 D 1D8 6 020           PACK  1D8(8,13),020(3,6)    TS=025          DNM=1-206
+                     000386  F9 10 D 1DE C 034           CP    1DE(2,13),034(1,12)   TS=031          LIT+4
+                     00038C  58 F0 C 024                 L     15,024(0,12)          GN=02
+                     000390  07 7F                       BCR   7,15
+  35      MOVE       000392  D2 00 6 010 C 031           MVC   010(1,6),031(12)      DNM=1-164       LIT+1
+  36      ADD        000398                     GN=02    EQU   *
+                     000398  F2 72 D 1D8 6 008           PACK  1D8(8,13),008(3,6)    TS=025          DNM=1-144
+                     00039E  FA 20 D 1DD C 035           AP    1DD(3,13),035(1,12)   TS=030          LIT+5
+                     0003A4  F3 22 6 008 D 1DD           UNPK  008(3,6),1DD(3,13)    DNM=1-144       TS=030
+                     0003AA  96 F0 6 00A                 OI    00A(6),X'F0'          DNM=1-144+2
+  37      GO         0003AE  58 10 C 010                 L     1,010(0,12)           PN=02
+                     0003B2  07 F1                       BCR   15,1
+  39     *PRIME-CHECK
+                     0003B4                     PN=04    EQU   *
+  40      IF         0003B4  F2 70 D 1D8 6 010           PACK  1D8(8,13),010(1,6)    TS=025          DNM=1-164
+                     0003BA  F9 00 D 1DF C 035           CP    1DF(1,13),035(1,12)   TS=032          LIT+5
+                     0003C0  58 F0 C 028                 L     15,028(0,12)          GN=03
+                     0003C4  07 7F                       BCR   7,15
+  41      DISPLAY    0003C6  58 F0 C 004                 L     15,004(0,12)          V(ILBODSP0)
+                     0003CA  05 1F                       BALR  1,15
+                     0003CC  0001                        DC    X'0001'
+                     0003CE  0F                          DC    X'0F'
+                     0003CF  000003                      DC    X'000003'
+                     0003D2  0D0001BC                    DC    X'0D0001BC'           BL =1
+                     0003D6  0000                        DC    X'0000'
+                     0003D8  FFFF                        DC    X'FFFF'
+  42      ADD        0003DA                     GN=03    EQU   *
+                     0003DA  F2 72 D 1D8 6 000           PACK  1D8(8,13),000(3,6)    TS=025          DNM=1-128
+                     0003E0  FA 20 D 1DD C 035           AP    1DD(3,13),035(1,12)   TS=030          LIT+5
+                     0003E6  F3 22 6 000 D 1DD           UNPK  000(3,6),1DD(3,13)    DNM=1-128       TS=030
+                     0003EC  96 F0 6 002                 OI    002(6),X'F0'          DNM=1-128+2
+  43      GO         0003F0  58 10 C 00C                 L     1,00C(0,12)           PN=01
+                     0003F4  07 F1                       BCR   15,1
+  45     *END-PROG
+                     0003F6                     PN=05    EQU   *
+  46      STOP       0003F6  58 F0 C 008                 L     15,008(0,12)          V(ILBOSTP1)
+                     0003FA  07 FF                       BCR   15,15
+                     0003FC  50 D0 5 008        INIT2    ST    13,008(0,5)
+                     000400  50 50 D 004                 ST    5,004(0,13)
+                     000404  50 E0 D 054                 ST    14,054(0,13)
+                     000408  94 EF D 048                 NI    048(13),X'EF'         SWT+0
+                     00040C  58 F0 C 000                 L     15,000(0,12)          VIR=1
+                     000410  05 EF                       BALR  14,15
+                     000412  50 10 D 1B8                 ST    1,1B8(0,13)
+                     000416  12 00                       LTR   0,0
+                     000418  07 89                       BCR   8,9
+                     00041A  96 10 D 048                 OI    048(13),X'10'         SWT+0
+                     00041E  05 F0              INIT3    BALR  15,0
+1   6
+-                    000420  91 20 D 048                 TM    048(13),X'20'         SWT+0
+                     000424  47 E0 F 016                 BC    14,016(0,15)
+                     000428  58 00 B 038                 L     0,038(0,11)
+                     00042C  98 2D B 040                 LM    2,13,040(11)
+                     000430  58 E0 D 054                 L     14,054(0,13)
+                     000434  07 FE                       BCR   15,14
+                     000436  96 20 D 048                 OI    048(13),X'20'         SWT+0
+                     00043A  41 60 0 004                 LA    6,004(0,0)
+                     00043E  41 10 C 00C                 LA    1,00C(0,12)           PN=01
+                     000442  41 70 C 030                 LA    7,030(0,12)           LIT+0
+                     000446  06 70                       BCTR  7,0
+                     000448  05 50                       BALR  5,0
+                     00044A  58 40 1 000                 L     4,000(0,1)
+                     00044E  1E 4B                       ALR   4,11
+                     000450  50 40 1 000                 ST    4,000(0,1)
+                     000454  87 16 5 000                 BXLE  1,6,000(5)
+                     000458  41 80 D 1BC                 LA    8,1BC(0,13)           OVF=1
+                     00045C  41 70 D 1BF                 LA    7,1BF(0,13)           TS=01-1
+                     000460  05 10                       BALR  1,0
+                     000462  58 00 8 000                 L     0,000(0,8)
+                     000466  1E 0B                       ALR   0,11
+                     000468  50 00 8 000                 ST    0,000(0,8)
+                     00046C  87 86 1 000                 BXLE  8,6,000(1)
+                     000470  58 60 D 1BC                 L     6,1BC(0,13)           BL =1
+                     000474  58 E0 D 054                 L     14,054(0,13)
+                     000478  07 FE                       BCR   15,14
+                     000000  07 00              INIT1    BCR   0,0
+                     000002  90 EC D 00C                 STM   14,12,00C(13)
+                     000006  18 5D                       LR    5,13
+                     000008  05 F0                       BALR  15,0
+                     00000A  98 9F F 012                 LM    9,15,012(15)
+                     00000E  07 FF                       BCR   15,15
+                     000010  96 02 1 034                 OI    034(1),X'02'
+                     000014  07 FE                       BCR   15,14
+                     000016  41 F0 0 001                 LA    15,001(0,0)
+                     00001A  07 FE                       BCR   15,14
+                     00001C  0000041E                    ADCON L4(INIT3)
+                     000020  00000000                    ADCON L4(INIT1)
+                     000024  00000000                    ADCON L4(INIT1)
+                     000028  000002A0                    ADCON L4(PGT)
+                     00002C  000000B0                    ADCON L4(TGT)
+                     000030  000002D6                    ADCON L4(START)
+                     000034  000003FC                    ADCON L4(INIT2)
+                     000038                              DS    15F
+                     000074  FFFFFFFF                    DC    X'FFFFFFFF'
+                     000078  D7D9C9D4C5E24040            DC    X'D7D9C9D4C5E24040'
+ 
+ 
+ 
+ *STATISTICS*     SOURCE RECORDS =    46     DATA DIVISION STATEMENTS =     6     PROCEDURE DIVISION STATEMENTS =    18
+ *OPTIONS IN EFFECT*     SIZE =   81920  BUF =    2768  LINECNT = 57  SPACE1, FLAGW,   SEQ,   SOURCE
+ *OPTIONS IN EFFECT*       DMAP,   PMAP, NOCLIST,   SUPMAP,   XREF,   LOAD, NODECK, APOST, NOTRUNC,   LIB,   VERB
+ *OPTIONS IN EFFECT*       ZWB
+1   7
+-                                              CROSS-REFERENCE DICTIONARY
+ 
+ 
+  DATA NAMES                       DEFN       REFERENCE
+ 
+  WS-NUM                           00008      00020  00027  00031  00041  00042  00042  00042
+  WS-DIVISOR                       00009      00023  00027  00027  00031  00036  00036  00036
+  WS-IS-PRIME                      00010      00022  00035  00040
+  WS-QUOTIENT                      00011      00031  00031
+  WS-REMAINDER                     00012      00031  00031  00034
+  WS-LIMIT                         00013      00020
+ 
+ 
+  PROCEDURE NAMES                  DEFN       REFERENCE
+ 
+  MAIN-PARA                        00016
+  MAIN-LOOP                        00019      00017  00043
+  DIV-CHECK                        00026      00024  00037
+  DIV-LOOP                         00030
+  PRIME-CHECK                      00039      00028
+  END-PROG                         00045      00021
